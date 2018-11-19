@@ -11,18 +11,25 @@ const styles = StyleSheet.create({
    Logo: {
       width      : 80,
       height     : 26,
-      paddingVertical : 20,
       resizeMode : 'contain'
    },
+   container: {
+      paddingVertical: 10,
+      paddingHorizontal: 10,
+      flexDirection: 'row'
+   }
 });
 
 function Header(props){
    return(
        <View>
           <SafeAreaView>
-             <Image source ={{uri : "https://fedesoft.org/wp-content/uploads/2018/03/platzi.jpg"}}
-                    style  ={styles.Logo}
-             />
+             <View style={styles.container}>
+                <Image
+                    source={require('../../../assets/logo.png')}
+                    style={styles.logo}
+                />
+             </View>
           </SafeAreaView>
        </View>
    )
