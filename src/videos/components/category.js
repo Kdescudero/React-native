@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 function Category(props){
    return(
        <ImageBackground style={styles.wrapper} source={{uri: props.background_image}}>
-          <Text style={styles.genre}>{props.genres[0]}</Text>
+          <Text style={styles.genre}>Mala</Text>
        </ImageBackground>
    )
 }

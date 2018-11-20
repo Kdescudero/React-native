@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import Video from "react-native-video";
-import {StyleSheet, ActivityIndicator} from "react-native";
+import {StyleSheet, ActivityIndicator, Text} from "react-native";
 import Layout from "../components/layout";
+import ControlLayout from "../components/control-layout";
+import PlayPause from "../components/play-pause";
 
 const styles = StyleSheet.create({
    video : {
@@ -14,7 +16,8 @@ const styles = StyleSheet.create({
 
 class Player extends Component {
    state={
-      loading: true
+      loading : true,
+      paused  : false,
    };
 
    onBuffer = ({isBuffering}) =>{
@@ -23,8 +26,14 @@ class Player extends Component {
       })
    };
 
+   playPause=()=>{
+      this.setState(({paused}) => ({
+         paused: !paused
+      }))
+   };
+
    render(){
-      const {loading} = this.state;
+      const {loading,paused} = this.state;
 
       return(
           <Layout
@@ -35,6 +44,7 @@ class Player extends Component {
                      style={styles.video}
                      resizeMode='contain'
                      onBuffer={this.onBuffer}
+                     paused={paused}
                  />
               }
               loader={
@@ -42,7 +52,10 @@ class Player extends Component {
               }
               controls={
                  <ControlLayout>
-                    <PlayPause />
+                    <PlayPause
+                        paused={paused}
+                        onPress={this.playPause}
+                    />
                     <Text>Progress bar | </Text>
                     <Text>Time left | </Text>
                     <Text>fullscreen | </Text>

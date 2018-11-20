@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {View,StyleSheet} from 'react-native';
 
 function ControlLayout(props){
    return(
@@ -12,10 +12,14 @@ function ControlLayout(props){
 const styles = StyleSheet.create({
    container: {
       backgroundColor: 'rgba(255,255,255,.3)',
-      position:'absolute',left:0,right:0,bottom:0,top:0,
-      flexDirection: 'row',
+      position:'absolute',
+      left: 0,
+      right: 0,
+      bottom: 0,
+      height: 35,
+      flexDirection:'row',
       paddingHorizontal: 10,
-      alignItems: 'center',
+      alignItems: 'center'
    }
 });
 
