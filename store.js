@@ -6,6 +6,7 @@ import storage from 'redux-persist/lib/storage'
 const persisConfig = {
    key: 'root',
    storage,
+   blacklist: ['selectedMovie']
 };
 
 const pReducer = persistReducer(persisConfig, reducer);
